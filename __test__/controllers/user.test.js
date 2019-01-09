@@ -1,5 +1,5 @@
 let SequelizeMock = require('sequelize-mock');
-
+let proxyquire = require('proxyquire');
 let controller = require('../../src/controllers/UserController');
 
 // lager en mock database
@@ -12,14 +12,17 @@ let UserMock = dbMock.define('user', {
     isAdmin: false
 });
 
+let myModule = proxyquire('user.controller', {
+    './user.model': UserMock
+});
+
 describe('#getUserEmail', function () {
 
-    it("should return a user's email in NAME <EMAIL> format", (done) => {
-        myModule.getUserEmail(1).then(function (email) {
-
-
-            done();
-
+    it("testing retriveOne", (done) => {
+        myModule.retriveOne("test@example.com")
+            .then(e =>{
+                console.log(e);
+                done();
         }).catch(done);
     });
 });
