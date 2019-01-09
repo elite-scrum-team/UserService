@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, DataTypes) => {
-    sequelize.define('group', {
+    return sequelize.define('groups', {
         name: DataTypes.STRING,
         municipalitiy: DataTypes.STRING,
     });

@@ -1,9 +1,18 @@
 
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('user', {
+    const User = sequelize.define('users', {
         email: DataTypes.STRING,
         password: DataTypes.STRING,
         phone: DataTypes.STRING,
-        isAdmin: DataTypes.BOOL,
+        isAdmin: DataTypes.BOOLEAN,
     });
+    User.associate = (models) => {
+        console.log(models);
+        User.belongsToMany(models.groups, {
+            through: 'users_groups',
+            as: 'groups',
+            foreignKey: 'userId'
+        });
+    };
+    return User;
 }
