@@ -8,6 +8,7 @@ db.sequelize.sync();
 
 const app = express();
 
+// to parse json
 app.use(bodyParser.json());
 
 app.use('/user', require('./routers/user')); 
