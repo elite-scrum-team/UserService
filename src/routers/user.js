@@ -8,6 +8,18 @@ const AuthorizationController = require('../controllers/AuthorizationController'
 
 const router = express.Router();
 
+// curd 
+
+router.get('/', async (req, res) => {
+    const payload = req.body.payload;
+    if (payload.email) {
+        await res.send(
+            await UserController.retriveOne(payload.email));
+    } else {
+        await res.send({});
+    }
+});
+
 router.post('/login', async (req, res) => {
     const payload = req.body.payload;
     console.log(req.body);
@@ -26,10 +38,9 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', async (req, res) => { 
     const payload = req.body.payload;
-    const r = await UserController.create(payload.email, payload.password, payload.phone);
-    await res.send({
-        status: 'Working...',
-    });
+    const user = await UserController.create(payload.email, payload.password, payload.phone);
+    await res.send(user);
 });
 
 module.exports = router;
+

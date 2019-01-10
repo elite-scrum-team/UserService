@@ -10,7 +10,7 @@ module.exports = {
             isAdmin: false,
         };
         await AuthorizationController.setPassword(user, password);
-        await users.create(user); 
+        return await users.create(user); 
     },
     async retrive() {
          
