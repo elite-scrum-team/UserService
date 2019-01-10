@@ -7,13 +7,15 @@ const AuthorizationController = require('../controllers/AuthorizationController'
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
-    if (req.body.payload.email === undefined) {
+    const payload = req.body.payload;
+    console.log(req.body);
+    if (payload.email === undefined) {
         await res.send({ errors: { email: 'This field is required' }});
         return;
     }
-    const user = await UserController.retriveOne(req.body.payload.email);
+    const user = await UserController.retriveOne(payload.email);
     console.log(user);
-    if (user && await AuthorizationController.verify(user, req.body.payload.password)) {
+    if (user && await AuthorizationController.verify(user, payload.password)) {
         await res.send({ token: 'token' });
     } else {
         await res.send({ error: 'USER_WITH_EMAIL_AND_PASSWORD_DOES_NOT_EXIST'});
