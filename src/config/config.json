@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "halvorfb",
-    "password": "r01JDkh8",
-    "database": "halvorfb",
-    "host": "mysql.stud.iie.ntnu.no",
+    "username": "user-service",
+    "password": "ze36VLB9MPK7Gv7",
+    "database": "UserService",
+    "host": "35.228.44.201",
     "dialect": "mysql"
   },
   "test": {
