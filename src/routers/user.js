@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
     const user = await UserController.retriveOne(payload.email);
     console.log(user);
     if (user && await AuthorizationController.verify(user, payload.password)) {
-        await res.send({ token: auth.generateToken({ email: user.email })});
+        await res.send({ token: await auth.generateToken({ email: user.email })});
     } else {
         await res.send({ error: 'USER_WITH_EMAIL_AND_PASSWORD_DOES_NOT_EXIST'});
     }
