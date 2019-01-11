@@ -1,36 +1,41 @@
 {
-  "name": "dummyservice",
-  "version": "1.0.0",
-  "description": "service for dummies",
-  "main": "server.js",
-  "scripts": {
-    "test": "jest",
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/elite-scrum-team/UserService.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/elite-scrum-team/UserService/issues"
-  },
-  "homepage": "https://github.com/elite-scrum-team/UserService#readme",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "husky": "^1.3.1",
-    "jsonwebtoken": "^8.4.0",
-    "mysql2": "^1.6.4",
-    "prettier": "^1.15.3",
-    "pretty-quick": "^1.8.0",
-    "prom-client": "^11.2.1",
-    "sequelize": "^4.42.0"
-  },
-  "devDependencies": {
-    "jest": "^23.6.0"
-  }
+    "name": "dummyservice",
+    "version": "1.0.0",
+    "description": "service for dummies",
+    "main": "server.js",
+    "scripts": {
+        "test": "jest",
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/elite-scrum-team/UserService.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/elite-scrum-team/UserService/issues"
+    },
+    "homepage": "https://github.com/elite-scrum-team/UserService#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "jsonwebtoken": "^8.4.0",
+        "mysql2": "^1.6.4",
+        "prom-client": "^11.2.1",
+        "sequelize": "^4.42.0"
+    },
+    "devDependencies": {
+        "jest": "^23.6.0",
+        "prettier": "^1.15.3",
+        "pretty-quick": "^1.8.0",
+        "husky": "^1.3.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    }
 }
