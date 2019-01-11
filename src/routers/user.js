@@ -13,11 +13,12 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const payload = req.body.payload;
     if (payload.email) {
-        await res.send(
-            await UserController.retriveOne(payload.email));
-    } else {
-        await res.send({});
+        const user = await UserController.retriveOne(payload.email);
+        if (user) {
+            await res.send(user, 200);
+        } 
     }
+    await res.send({}, 400);
 });
 
 router.post('/login', async (req, res) => {
