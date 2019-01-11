@@ -22,13 +22,11 @@ router.get('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const payload = req.body.payload;
-    console.log(req.body);
     if (payload.email === undefined) {
         await res.send({ errors: { email: 'This field is required' }});
         return;
     }
     const user = await UserController.retriveOne(payload.email);
-    console.log(user);
     if (user && await AuthorizationController.verify(user, payload.password)) {
         await res.send({ token: await auth.generateToken({ email: user.email })});
     } else {
