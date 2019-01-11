@@ -16,8 +16,10 @@ module.exports = {
          
     },
     async retriveOne(email) {
-        return (await users.find({ where: { email: email }})).dataValues;
-    },
+        const user = await users.find({ where: { email: email }})
+        if (user) return user.dataValues;
+        else return undefined;
+    }
     async update() {
 
     },
