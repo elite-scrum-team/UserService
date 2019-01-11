@@ -2,9 +2,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const client = require('prom-client');
+const collectDefaultMetrics = client.collectDefaultMetrics;
+collectDefaultMetrics({ timeout: 5000 });
+
 const db = require('./models');
 
-db.sequelize.sync();
+db.sequelize.sync(force=true);
 
 const app = express();
 
@@ -18,6 +22,11 @@ app.get('/', async (req, res) => {
         message: 'Welcome to the UserService. Documentation can be found at "https://github.com/elite-scrum-team/UserService"'
     })
 });
+
+app.get('/metrics', async (req, res) => {
+    await res.set('Content-Type', client.register.contentType)
+    await res.end(client.register.metrics())
+})
 
 console.log(process.env.port);
 
