@@ -34,7 +34,7 @@ router.post('/token/', async (req, res) => {
         (await AuthorizationController.verify(user, req.body.password))
     ) {
         await res.send({
-            token: await auth.generateToken({ email: user.email }),
+            token: await auth.generateToken({ id: user.id }),
         });
     } else {
         await res.send({
