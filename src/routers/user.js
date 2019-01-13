@@ -19,7 +19,11 @@ router.get('/', async (req, res) => {
     await res.send({}, 400);
 });
 
-router.post('/login', async (req, res) => {
+router.post('/token/verify', async (req, res) => {
+    await res.send({ error: 'not implemented' });
+});
+
+router.post('/token/', async (req, res) => {
     if (req.body.email === undefined) {
         await res.send({ errors: { email: 'This field is required' } });
         return;
