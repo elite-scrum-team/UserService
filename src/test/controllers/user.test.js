@@ -1,46 +1,75 @@
-const { expect } = require('chai');
+const chai = require('chai');
+chai.use(require('sinon-chai'));
+let expect = chai.expect;
 const sinon = require('sinon');
 const proxyquire = require('proxyquire');
 const { makeMockModels } = require('sequelize-test-helpers');
-/*
-* can unit-test all of your code that relies on your models,
-* without going anywhere near your database.
-* This keeps your tests isolated and fast.
-* */
 
-const mockModels = makeMockModels({ User: { findOne: sinon.stub() }});
+const mockModels = makeMockModels({ users: { findOne: sinon.stub() } });
 
-// As a convenience, makeMockModels will automatically populate your mockModels with mocks of all of the models defined
-// in your src/models folder (or if you have a .sequelizerc file it will look for the model-path in that).
-// Simply override any of the specific models you need to do stuff with.
+const controller = proxyquire('../../controllers/UserController', {
+    '../models': mockModels,
+});
 
-const save = proxyquire('../../controllers/UserController', { '../models/user': mockModels });
-
-const fakeUser = { update: sinon.stub() }
-
+const fakeUser = { update: sinon.stub() };
 
 describe('User testing', () => {
     const user = {
-        email: "NiceBoi@boi.no",
-        password: "password",
-        phone: "987651723",
-        isAdmin: false
+        email: 'NiceBoi@boi.n6o',
+        password: 'password',
+        phone: '987651723',
+        isAdmin: false,
     };
 
     const resetStubs = () => {
-        mockModels.User.findOne.resetHistory();
+        mockModels.users.findOne.resetHistory();
         fakeUser.update.resetHistory();
     };
 
     let result;
 
-    context('testing create ',() =>{
+    context('testing retriveOne() on a User that doesnt exist ', () => {
+        beforeAll(async () => {
+            mockModels.users.findOne.resolves(undefined);
+            result = await controller.retriveOne(user.email);
+            console.log(JSON.stringify(result));
+        });
 
+        afterAll(resetStubs);
 
+        it('called mockModels.User', () => {
+            expect(mockModels.users.findOne).to.have.been.called;
+        });
 
+        it("didn't call user.update", () => {
+            expect(fakeUser.update).not.to.have.been.called;
+        });
 
-    })
+        it('returned null', () => {
+            console.log(result);
+            expect(user).to.be.undefined;
+        });
+    });
+
+    context('user exists', () => {
+        beforeAll(async () => {
+            fakeUser.update.resolves(fakeUser);
+            mockModels.User.findOne.resolves(fakeUser);
+            result = await User.retriveOne(user);
+        });
+
+        afterAll(resetStubs);
+
+        it('called User.findOne', () => {
+            expect(mockModels.users.findOne).to.have.been.called;
+        });
+
+        it('called user.update', () => {
+            expect(fakeUser.update).to.have.been.calledWith(sinon.match(user));
+        });
+
+        it('returned the user', () => {
+            expect(result).to.deep.equal(fakeUser);
+        });
+    });
 });
-
-
-

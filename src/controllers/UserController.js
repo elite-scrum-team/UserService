@@ -15,8 +15,9 @@ module.exports = {
     async retrive() {},
     async retriveOne(email) {
         const user = await users.find({ where: { email: email } });
+        console.log(user);
         if (user) return user.dataValues;
-        else return {};
+        else return null;
     },
     async update() {},
     async delete() {},
