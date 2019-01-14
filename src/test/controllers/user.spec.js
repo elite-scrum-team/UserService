@@ -1,3 +1,4 @@
+'use strict';
 const chai = require('chai');
 chai.use(require('sinon-chai'));
 let expect = chai.expect;
@@ -5,10 +6,10 @@ const sinon = require('sinon');
 const proxyquire = require('proxyquire');
 const { makeMockModels } = require('sequelize-test-helpers');
 
-const mockModels = makeMockModels({ users: { findOne: sinon.stub() } });
+const mockModels = makeMockModels({ user: { findOne: sinon.stub() } });
 
 const controller = proxyquire('../../controllers/UserController', {
-    '../models': mockModels,
+    '/models': mockModels,
 });
 
 const fakeUser = { update: sinon.stub() };
@@ -22,7 +23,7 @@ describe('User testing', () => {
     };
 
     const resetStubs = () => {
-        mockModels.users.findOne.resetHistory();
+        mockModels.user.findOne.resetHistory();
         fakeUser.update.resetHistory();
     };
 
@@ -30,16 +31,11 @@ describe('User testing', () => {
 
     context('testing retriveOne() on a User that doesnt exist ', () => {
         beforeAll(async () => {
-            mockModels.users.findOne.resolves(undefined);
+            mockModels.user.findOne.resolves(undefined);
             result = await controller.retriveOne(user.email);
-            console.log(JSON.stringify(result));
         });
 
         afterAll(resetStubs);
-
-        it('called mockModels.User', () => {
-            expect(mockModels.users.findOne).to.have.been.called;
-        });
 
         it("didn't call user.update", () => {
             expect(fakeUser.update).not.to.have.been.called;
@@ -47,14 +43,14 @@ describe('User testing', () => {
 
         it('returned null', () => {
             console.log(result);
-            expect(user).to.be.undefined;
+            expect(user).to.be.null;
         });
     });
 
     context('user exists', () => {
         beforeAll(async () => {
             fakeUser.update.resolves(fakeUser);
-            mockModels.User.findOne.resolves(fakeUser);
+            mockModels.user.findOne.resolves(fakeUser);
             result = await User.retriveOne(user);
         });
 

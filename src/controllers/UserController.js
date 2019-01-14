@@ -1,3 +1,4 @@
+'use strict';
 const { users } = require('../models');
 
 const AuthorizationController = require('./AuthorizationController.js');
