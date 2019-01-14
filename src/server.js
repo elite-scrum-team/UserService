@@ -16,7 +16,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-app.use('/user', require('./routers/user'));
+app.use('/api/v1/user', require('./routers/user'));
 
 app.get('/', async (req, res) => {
     await res.send({
