@@ -1,4 +1,5 @@
 //Unit-Testing a Model’s Name and Properties
+
 const {
     sequelize,
     dataTypes,
@@ -6,15 +7,17 @@ const {
     checkPropertyExists
 } = require('sequelize-test-helpers');
 
-const SimpleModel = require('../../models/user');
+const Usermodel = require('../../models/user');
 
 describe('src/models/user', () => {
-    const Model = SimpleModel(sequelize, dataTypes);
+
+    const Model = Usermodel(sequelize, dataTypes);
     const instance = new Model();
 
+    // checking if the model is the same instance as the newmodel()
     checkModelName(Model)('users');
 
-    it('properties', () => {
-        ['email', 'password', 'phone', 'isAdmin'].forEach(checkPropertyExists(instance))
+    context('properties', () => {
+        ;['email', 'password', 'phone', 'isAdmin'].forEach(checkPropertyExists(instance));
     });
 });
