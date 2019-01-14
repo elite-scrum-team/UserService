@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/test/controllers/user.spec.js" line="5" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/src/test/controllers/user.spec.js" line="4" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df2e1860-644d-421a-8e0c-82d09e4f4f86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AuthorizationController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AuthorizationController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/UserController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/controllers/user.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/controllers/user.spec.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,19 +21,19 @@
     <session id="1836113516">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
-          <entry key="project.open.time.0" value="6" />
+          <entry key="project.closed" value="13" />
+          <entry key="project.open.time.0" value="7" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="2" />
           <entry key="gitignore" value="2" />
-          <entry key="js" value="55" />
+          <entry key="js" value="56" />
           <entry key="json" value="11" />
           <entry key="sequelizerc" value="1" />
         </counts>
@@ -47,21 +42,21 @@
         <counts>
           <entry key=".env file" value="2" />
           <entry key="JSON" value="11" />
-          <entry key="JavaScript" value="55" />
+          <entry key="JavaScript" value="56" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="56" />
-          <entry key="js" value="4249" />
+          <entry key="js" value="4421" />
           <entry key="json" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="54" />
-          <entry key="JavaScript" value="4249" />
+          <entry key="JavaScript" value="4421" />
           <entry key="PLAIN_TEXT" value="56" />
         </counts>
       </usages-collector>
@@ -72,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/controllers/user.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -81,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="368">
               <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
@@ -90,17 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/UserController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="30">
+              <caret line="2" column="39" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -169,6 +155,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,7 +197,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -343,47 +329,49 @@
       <workItem from="1547456805609" duration="683000" />
       <workItem from="1547459503626" duration="3541000" />
       <workItem from="1547463343674" duration="6313000" />
-      <workItem from="1547472050978" duration="7370000" />
+      <workItem from="1547472050978" duration="7706000" />
+      <workItem from="1547488131670" duration="517000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="User_testing_(1) - 2019.01.14 at 16h 46m 28s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 16h 47m 04s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 16h 47m 22s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 16h 47m 55s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 16h 48m 22s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 16h 48m 27s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 16h 49m 15s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 16h 55m 24s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="User_testing_(1) - 2019.01.14 at 16h 55m 43s.xml">
       <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
     <history-entry file="User_testing_(1) - 2019.01.14 at 17h 08m 20s.xml">
       <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="User_testing_(1) - 2019.01.14 at 17h 10m 34s.xml">
+      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="User_testing_(1) - 2019.01.14 at 17h 10m 49s.xml">
+      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="User_testing_(1) - 2019.01.14 at 17h 11m 18s.xml">
+      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="User_testing_(1) - 2019.01.14 at 17h 17m 36s.xml">
+      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="User_testing_(1) - 2019.01.14 at 18h 49m 01s.xml">
+      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="User_testing_(1) - 2019.01.14 at 18h 49m 19s.xml">
+      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="User_testing_(1) - 2019.01.14 at 18h 53m 58s.xml">
+      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="User_testing_(1) - 2019.01.14 at 19h 02m 39s.xml">
+      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36527000" />
+    <option name="totallyTimeSpent" value="37380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -391,7 +379,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40408164" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.54591835" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -499,17 +487,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/controllers/fitte.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="39" lean-forward="true" selection-start-column="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/controllers/fitte.js" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
           <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -520,31 +509,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/index.js">
+    <entry file="file://$PROJECT_DIR$/src/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="368">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/UserController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="30">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/controllers/user.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>

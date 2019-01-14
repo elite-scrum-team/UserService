@@ -7,11 +7,16 @@ const sinon = require('sinon');
 const { makeMockModels } = require('sequelize-test-helpers');
 
 const mockModels = makeMockModels({ user: { findOne: sinon.stub() } });
-proxyquire.noCallThru();
 
+jest.mock('../../models/', () => ({
+    users: mockModels,
+}));
+
+let save = require('../../controllers/UserController');
+/*
 const save = proxyquire('../../controllers/UserController', {
-    '../models': mockModels,
-});
+    '../models': mockModels
+});*/
 
 const fakeUser = { update: sinon.stub() };
 
