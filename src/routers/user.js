@@ -38,7 +38,7 @@ router.post('/token/', async (req, res) => {
             token: await auth.generateToken({ id: user.id }),
         });
     } else {
-        await res.send({
+        await res.status(400).send({
             error: 'USER_WITH_EMAIL_AND_PASSWORD_DOES_NOT_EXIST',
         });
     }
