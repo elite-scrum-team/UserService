@@ -18,6 +18,11 @@ module.exports = {
         if (user) return user.dataValues;
         else return {};
     },
+    async retriveOneByEmail(email) {
+        const user = await users.find({ where: { email: email } });
+        if (user) return user.dataValues;
+        else return {};
+    },
     async update() {},
     async delete() {},
 };
