@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 const client = require('prom-client');
 const collectDefaultMetrics = client.collectDefaultMetrics;
@@ -13,6 +14,7 @@ const app = express();
 
 // to parse json
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 app.use('/user', require('./routers/user'));
 

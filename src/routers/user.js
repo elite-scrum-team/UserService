@@ -24,6 +24,7 @@ router.post('/token/verify', async (req, res) => {
 });
 
 router.post('/token/', async (req, res) => {
+    console.log(req.body);
     if (req.body.email === undefined) {
         await res.send({ errors: { email: 'This field is required' } });
         return;
