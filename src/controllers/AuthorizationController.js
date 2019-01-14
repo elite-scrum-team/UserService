@@ -1,12 +1,10 @@
 const bcrypt = require('bcryptjs');
 
-const UserController = require('./UserController.js');
-
 module.exports = {
     async verify(user, password) {
         try {
             return await bcrypt.compare(password, user.password);
-        } catch(e) {
+        } catch (e) {
             console.error(e);
         }
         return false;
@@ -14,5 +12,5 @@ module.exports = {
     async setPassword(user, password) {
         const hash = await bcrypt.hash(password, 10);
         user['password'] = hash;
-    }
-}
+    },
+};

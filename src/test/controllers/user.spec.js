@@ -1,15 +1,16 @@
-'use strict';
+const proxyquire = require('proxyquire');
 const chai = require('chai');
 chai.use(require('sinon-chai'));
 let expect = chai.expect;
 const sinon = require('sinon');
-const proxyquire = require('proxyquire');
+
 const { makeMockModels } = require('sequelize-test-helpers');
 
 const mockModels = makeMockModels({ user: { findOne: sinon.stub() } });
+proxyquire.noCallThru();
 
-const controller = proxyquire('../../controllers/UserController', {
-    '/models': mockModels,
+const save = proxyquire('../../controllers/UserController', {
+    '../models': mockModels,
 });
 
 const fakeUser = { update: sinon.stub() };
@@ -32,7 +33,7 @@ describe('User testing', () => {
     context('testing retriveOne() on a User that doesnt exist ', () => {
         beforeAll(async () => {
             mockModels.user.findOne.resolves(undefined);
-            result = await controller.retriveOne(user.email);
+            result = await save.retriveOne(user.email);
         });
 
         afterAll(resetStubs);

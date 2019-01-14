@@ -1,4 +1,3 @@
-'use strict';
 const { users } = require('../models');
 
 const AuthorizationController = require('./AuthorizationController.js');
@@ -16,7 +15,6 @@ module.exports = {
     async retrive() {},
     async retriveOne(email) {
         const user = await users.find({ where: { email: email } });
-        console.log(user);
         if (user) return user.dataValues;
         else return null;
     },
