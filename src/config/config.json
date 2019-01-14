@@ -1,23 +1,23 @@
 {
-  "development": {
-    "username": "halvorfb",
-    "password": "r01JDkh8",
-    "database": "halvorfb",
-    "host": "mysql.stud.iie.ntnu.no",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
+    "development": {
+        "username": "user-service",
+        "password": "ze36VLB9MPK7Gv7",
+        "database": "UserService",
+        "host": "35.228.44.201",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "database_production",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    }
 }

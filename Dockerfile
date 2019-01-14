@@ -8,5 +8,5 @@ RUN npm install --only=production -no-audit
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 5000
 CMD [ "npm", "start" ]

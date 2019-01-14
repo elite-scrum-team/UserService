@@ -5,23 +5,19 @@ const AuthorizationController = require('./AuthorizationController.js');
 module.exports = {
     async create(email, password, phone) {
         const user = {
-            email: email, 
+            email: email,
             phone: phone,
             isAdmin: false,
         };
         await AuthorizationController.setPassword(user, password);
-        await users.create(user); 
+        return await users.create(user);
     },
-    async retrive() {
-         
-    },
+    async retrive() {},
     async retriveOne(email) {
-        return (await users.find({ where: { email: email }})).dataValues;
+        const user = await users.find({ where: { email: email } });
+        if (user) return user.dataValues;
+        else return {};
     },
-    async update() {
-
-    },
-    async delete() {
-
-    }
-}
+    async update() {},
+    async delete() {},
+};
