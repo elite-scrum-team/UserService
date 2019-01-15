@@ -8,15 +8,9 @@ const { makeMockModels } = require('sequelize-test-helpers');
 
 const mockModels = makeMockModels({ user: { findOne: sinon.stub() } });
 
-jest.mock('../../models/', () => ({
-    users: mockModels,
-}));
-
-let save = require('../../controllers/UserController');
-/*
-const save = proxyquire('../../controllers/UserController', {
-    '../models': mockModels
-});*/
+const save = proxyquire('../controllers/UserController', {
+    '../models': mockModels,
+});
 
 const fakeUser = { update: sinon.stub() };
 
@@ -36,31 +30,34 @@ describe('User testing', () => {
     let result;
 
     context('testing retriveOne() on a User that doesnt exist ', () => {
-        beforeAll(async () => {
+        before(async () => {
             mockModels.user.findOne.resolves(undefined);
             result = await save.retriveOne(user.email);
         });
 
-        afterAll(resetStubs);
+        after(resetStubs);
+
+        it('called User.findOne', () => {
+            expect(mockModels.User.findOne).to.have.been.called;
+        });
 
         it("didn't call user.update", () => {
             expect(fakeUser.update).not.to.have.been.called;
         });
 
         it('returned null', () => {
-            console.log(result);
-            expect(user).to.be.null;
+            expect(result).to.be.null;
         });
     });
 
     context('user exists', () => {
-        beforeAll(async () => {
+        before(async () => {
             fakeUser.update.resolves(fakeUser);
             mockModels.user.findOne.resolves(fakeUser);
             result = await User.retriveOne(user);
         });
 
-        afterAll(resetStubs);
+        after(resetStubs);
 
         it('called User.findOne', () => {
             expect(mockModels.users.findOne).to.have.been.called;
