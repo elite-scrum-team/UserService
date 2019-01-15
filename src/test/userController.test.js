@@ -7,7 +7,7 @@ const sinon = require('sinon');
 const { makeMockModels } = require('sequelize-test-helpers');
 
 const mockModels = makeMockModels({
-    users: { create: sinon.stub(), findOne: sinon.stub() },
+    users: { create: sinon.stub(), find: sinon.stub() },
 });
 
 const save = proxyquire('../controllers/UserController', {
@@ -26,41 +26,41 @@ describe('User testing', () => {
     };
 
     const resetStubs = () => {
-        mockModels.users.findOne.resetHistory();
+        mockModels.users.find.resetHistory();
         fakeUser.dataValues.resetHistory();
     };
 
     context('testing retriveOne() on a User that doesnt exist ', () => {
         before(async () => {
-            mockModels.users.findOne.resolves(undefined);
-            result = await save.retriveOne(user.email);
+            mockModels.users.find.resolves(undefined);
+            result = await save.retriveOneByEmail(user.email);
         });
 
         after(resetStubs);
 
         it('called User.findOne', () => {
-            expect(mockModels.users.findOne).to.have.been.called;
+            expect(mockModels.users.find).to.have.been.called;
         });
 
         it("didn't call user.update", () => {
             expect(fakeUser.dataValues).not.to.have.been.called;
         });
 
-        it('returned null', () => {
-            expect(result).to.be.null;
+        it('returned empty object', () => {
+            expect(Object.getOwnPropertyNames(result).length > 0).to.be.false;
         });
     });
 
     context('testing retreveOne() on user that does exist', () => {
         before(async () => {
-            mockModels.users.findOne.resolves(fakeUser);
-            result = await save.retriveOne(user.email);
+            mockModels.users.find.resolves(fakeUser);
+            result = await save.retriveOneByEmail(user.email);
         });
 
         after(resetStubs);
 
         it('called User.findOne', () => {
-            expect(mockModels.users.findOne).to.have.been.called;
+            expect(mockModels.users.find).to.have.been.called;
         });
 
         it('returned the user', () => {
