@@ -7,7 +7,7 @@ const sinon = require('sinon');
 const { makeMockModels } = require('sequelize-test-helpers');
 
 const mockModels = makeMockModels({
-    users: { create: sinon.stub(), find: sinon.stub() },
+    users: { create: sinon.stub(), find: sinon.stub(), findByPk: sinon.stub() },
 });
 
 const save = proxyquire('../controllers/UserController', {
@@ -19,6 +19,7 @@ const fakeUser = { dataValues: sinon.stub() };
 
 describe('User testing', () => {
     const user = {
+        id: 1,
         email: 'NiceBoi@boi.no',
         password: 'password',
         phone: '987651723',
@@ -30,7 +31,7 @@ describe('User testing', () => {
         fakeUser.dataValues.resetHistory();
     };
 
-    context('testing retriveOne() on a User that doesnt exist ', () => {
+    context('testing retriveOneByEmail() on a User that doesnt exist ', () => {
         before(async () => {
             mockModels.users.find.resolves(undefined);
             result = await save.retriveOneByEmail(user.email);
@@ -51,7 +52,7 @@ describe('User testing', () => {
         });
     });
 
-    context('testing retreveOne() on user that does exist', () => {
+    context('testing retriveOneByEmail() on user that exist', () => {
         before(async () => {
             mockModels.users.find.resolves(fakeUser);
             result = await save.retriveOneByEmail(user.email);
@@ -61,6 +62,44 @@ describe('User testing', () => {
 
         it('called User.findOne', () => {
             expect(mockModels.users.find).to.have.been.called;
+        });
+
+        it('returned the user', () => {
+            expect(result).to.deep.equal(fakeUser.dataValues);
+        });
+    });
+
+    context('testing retriveOne() on non existing user', () => {
+        before(async () => {
+            mockModels.users.findByPk.resolves(undefined);
+            result = await save.retriveOne(user.id);
+        });
+
+        after(resetStubs);
+
+        it('called User.findOne', () => {
+            expect(mockModels.users.findByPk).to.have.been.called;
+        });
+
+        it("didn't call user.update", () => {
+            expect(fakeUser.dataValues).not.to.have.been.called;
+        });
+
+        it('returned empty object', () => {
+            expect(Object.getOwnPropertyNames(result).length > 0).to.be.false;
+        });
+    });
+
+    context('testing retriveOne() on user', () => {
+        before(async () => {
+            mockModels.users.findByPk.resolves(fakeUser);
+            result = await save.retriveOne(user.id);
+        });
+
+        after(resetStubs);
+
+        it('called User.findOne', () => {
+            expect(mockModels.users.findByPk).to.have.been.called;
         });
 
         it('returned the user', () => {
