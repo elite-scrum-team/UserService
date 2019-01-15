@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/test/user.spec.js" line="4" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/src/test/userController.test.js" line="4" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df2e1860-644d-421a-8e0c-82d09e4f4f86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/authenticationController.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/user.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/user.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/AuthorizationController.test.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,8 +35,8 @@
           <entry key="Dockerfile" value="1" />
           <entry key="env" value="2" />
           <entry key="gitignore" value="3" />
-          <entry key="js" value="64" />
-          <entry key="json" value="12" />
+          <entry key="js" value="71" />
+          <entry key="json" value="13" />
           <entry key="sequelizerc" value="1" />
         </counts>
       </usages-collector>
@@ -43,22 +44,22 @@
         <counts>
           <entry key=".env file" value="2" />
           <entry key="Dockerfile" value="1" />
-          <entry key="JSON" value="12" />
-          <entry key="JavaScript" value="64" />
+          <entry key="JSON" value="13" />
+          <entry key="JavaScript" value="71" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="56" />
-          <entry key="js" value="6059" />
-          <entry key="json" value="84" />
+          <entry key="js" value="7177" />
+          <entry key="json" value="88" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="84" />
-          <entry key="JavaScript" value="6059" />
+          <entry key="JSON" value="88" />
+          <entry key="JavaScript" value="7177" />
           <entry key="PLAIN_TEXT" value="56" />
         </counts>
       </usages-collector>
@@ -66,11 +67,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/user.spec.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/userController.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="86" column="73" selection-start-line="86" selection-start-column="73" selection-end-line="86" selection-end-column="73" />
+            <state relative-caret-position="-871">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/authenticationController.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -78,8 +88,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/AuthorizationController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+            <state relative-caret-position="195">
+              <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/UserController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -113,14 +132,15 @@
         <option value="$PROJECT_DIR$/src/models/user.js" />
         <option value="$PROJECT_DIR$/src/test/controllers/user.test.js" />
         <option value="$PROJECT_DIR$/src/test/controllers/fitte.js" />
-        <option value="$PROJECT_DIR$/src/controllers/AuthorizationController.js" />
         <option value="$PROJECT_DIR$/src/test/model/user.test.js" />
         <option value="$PROJECT_DIR$/src/models/index.js" />
         <option value="$PROJECT_DIR$/src/test/controllers/mock.js" />
         <option value="$PROJECT_DIR$/src/test/controllers/user.spec.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/controllers/UserController.js" />
         <option value="$PROJECT_DIR$/src/test/user.spec.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/controllers/AuthorizationController.js" />
+        <option value="$PROJECT_DIR$/src/test/authenticationController.test.js" />
       </list>
     </option>
   </component>
@@ -173,12 +193,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="UserService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -217,7 +231,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.test">
+  <component name="RunManager" selected="Mocha.AuthorizationController">
     <configuration name="User testing (1)" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -239,19 +253,6 @@
       <test-file value="$PROJECT_DIR$/src/test/controllers/user.test.js" />
       <test-names>
         <test-name value="User testing" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="User testing.testing retriveOne() on a User that doesnt exist " type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/test/controllers/user.test.js" />
-      <test-names>
-        <test-name value="User testing" />
-        <test-name value="testing retriveOne() on a User that doesnt exist " />
       </test-names>
       <method v="2" />
     </configuration>
@@ -277,20 +278,34 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="AuthorizationController" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/src/test/authenticationController.test.js</test-file>
+      <test-names>
+        <name value="AuthorizationController" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Jest.User testing" />
-      <item itemvalue="Jest.User testing.testing retriveOne() on a User that doesnt exist " />
       <item itemvalue="Jest.User testing (1)" />
       <item itemvalue="Jest.src/models/user" />
       <item itemvalue="npm.test" />
+      <item itemvalue="Mocha.AuthorizationController" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.AuthorizationController" />
         <item itemvalue="npm.test" />
         <item itemvalue="Jest.User testing (1)" />
         <item itemvalue="Jest.src/models/user" />
         <item itemvalue="Jest.User testing" />
-        <item itemvalue="Jest.User testing.testing retriveOne() on a User that doesnt exist " />
       </list>
     </recent_temporary>
   </component>
@@ -320,44 +335,44 @@
       <workItem from="1547488131670" duration="1128000" />
       <workItem from="1547490654329" duration="720000" />
       <workItem from="1547491540399" duration="820000" />
-      <workItem from="1547492513472" duration="11073000" />
+      <workItem from="1547492513472" duration="13645000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 01m 52s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 10h 51m 33s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 03m 01s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 10h 52m 32s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 03m 38s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 10h 52m 54s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 13m 28s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 10h 56m 02s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 15m 16s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 10h 56m 15s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 16m 05s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 10h 57m 47s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 16m 21s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 10h 58m 18s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 18m 15s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 10h 58m 41s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 18m 28s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 11h 00m 15s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="User_testing_(1) - 2019.01.14 at 21h 23m 12s.xml">
-      <configuration name="User testing (1)" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="AuthorizationController - 2019.01.15 at 11h 00m 24s.xml">
+      <configuration name="AuthorizationController" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50604000" />
+    <option name="totallyTimeSpent" value="53176000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -378,7 +393,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4622449" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33571428" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -386,7 +401,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33163264" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.22755101" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -399,9 +414,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/controllers/AuthorizationController.test.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.sequelizerc" />
     <entry file="file://$PROJECT_DIR$/.env" />
     <entry file="file://$PROJECT_DIR$/src/models/users_groups.js">
@@ -459,7 +471,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/controllers/fitte.js" />
-    <entry file="file://$PROJECT_DIR$/src/test/user.test.js">
+    <entry file="file://$PROJECT_DIR$/src/test/userModel.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
@@ -490,13 +502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -511,13 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/UserController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -525,17 +523,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/AuthorizationController.js">
+    <entry file="file://$PROJECT_DIR$/src/controllers/GroupController.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/AuthorizationController.test.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        <state relative-caret-position="90">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/user.spec.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/bcryptjs/dist/bcrypt.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="86" column="73" selection-start-line="86" selection-start-column="73" selection-end-line="86" selection-end-column="73" />
+        <state relative-caret-position="208">
+          <caret line="285" column="45" selection-start-line="285" selection-start-column="45" selection-end-line="285" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/UserController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/userController.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-871">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/AuthorizationController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/authenticationController.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
         </state>
       </provider>
     </entry>
