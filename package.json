@@ -1,7 +1,7 @@
 {
-    "name": "dummyservice",
+    "name": "userservice",
     "version": "1.0.0",
-    "description": "service for dummies",
+    "description": "service for user",
     "main": "server.js",
     "scripts": {
         "test": "mocha src/test/*.test.js",
