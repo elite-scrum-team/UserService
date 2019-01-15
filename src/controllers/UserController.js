@@ -17,6 +17,7 @@ module.exports = {
         }
     },
     async retrive() {},
+
     async retriveOne(id) {
         const user = await users.findByPk(id, { include: [{ all: true }] });
         if (user) return user.dataValues;

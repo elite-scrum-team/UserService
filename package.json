@@ -1,10 +1,10 @@
 {
-    "name": "dummyservice",
+    "name": "userservice",
     "version": "1.0.0",
-    "description": "service for dummies",
+    "description": "service for user",
     "main": "server.js",
     "scripts": {
-        "test": "jest",
+        "test": "mocha src/test/*.test.js",
         "start": "node src/server.js",
         "dev": "nodemon src/server.js"
     },
@@ -23,16 +23,23 @@
         "body-parser": "^1.18.3",
         "express": "^4.16.4",
         "jsonwebtoken": "^8.4.0",
+        "mock-require": "^3.0.2",
         "morgan": "^1.9.1",
         "mysql2": "^1.6.4",
         "prom-client": "^11.2.1",
-        "sequelize": "^4.42.0"
+        "sequelize": "^4.42.0",
+        "sinon": "^7.2.2"
     },
     "devDependencies": {
-        "jest": "^23.6.0",
+        "chai": "^4.2.0",
+        "husky": "^1.3.1",
+        "mocha": "^5.2.0",
         "prettier": "^1.15.3",
         "pretty-quick": "^1.8.0",
-        "husky": "^1.3.1"
+        "proxyquire": "^2.1.0",
+        "sequelize-mock": "^0.10.2",
+        "sequelize-test-helpers": "^1.0.7",
+        "sinon-chai": "^3.3.0"
     },
     "husky": {
         "hooks": {
