@@ -4,7 +4,7 @@
     "description": "service for dummies",
     "main": "server.js",
     "scripts": {
-        "test": "mocha src/test/*.spec.js",
+        "test": "mocha src/test/*.test.js",
         "start": "node src/server.js",
         "dev": "nodemon src/server.js"
     },
