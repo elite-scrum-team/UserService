@@ -47,8 +47,8 @@ describe('User testing', () => {
             expect(fakeUser.dataValues).not.to.have.been.called;
         });
 
-        it('returned empty object', () => {
-            expect(Object.getOwnPropertyNames(result).length > 0).to.be.false;
+        it('returned null', () => {
+            expect(result).to.be.null;
         });
     });
 
@@ -85,8 +85,8 @@ describe('User testing', () => {
             expect(fakeUser.dataValues).not.to.have.been.called;
         });
 
-        it('returned empty object', () => {
-            expect(Object.getOwnPropertyNames(result).length > 0).to.be.false;
+        it('returned  null', () => {
+            expect(result).to.be.null;
         });
     });
 

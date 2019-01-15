@@ -21,12 +21,12 @@ module.exports = {
     async retriveOne(id) {
         const user = await users.findByPk(id, { include: [{ all: true }] });
         if (user) return user.dataValues;
-        else return undefined;
+        else return null;
     },
     async retriveOneByEmail(email) {
         const user = await users.find({ where: { email: email } });
         if (user) return user.dataValues;
-        else return undefined;
+        else return null;
     },
     async update() {},
     async delete() {},
