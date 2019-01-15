@@ -9,19 +9,23 @@ module.exports = {
             phone: phone,
             isAdmin: false,
         };
-        await AuthorizationController.setPassword(user, password);
-        return await users.create(user);
+        try {
+            await AuthorizationController.setPassword(user, password);
+            return await users.create(user);
+        } catch (err) {
+            return undefined;
+        }
     },
     async retrive() {},
     async retriveOne(id) {
-        const user = await users.findByPk(id);
+        const user = await users.findByPk(id, { include: [{ all: true }] });
         if (user) return user.dataValues;
-        else return {};
+        else return undefined;
     },
     async retriveOneByEmail(email) {
         const user = await users.find({ where: { email: email } });
         if (user) return user.dataValues;
-        else return {};
+        else return undefined;
     },
     async update() {},
     async delete() {},

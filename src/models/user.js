@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
         isAdmin: DataTypes.BOOLEAN,
     });
     User.associate = models => {
-        console.log(models);
         User.belongsToMany(models.groups, {
             through: 'users_groups',
             as: 'groups',
