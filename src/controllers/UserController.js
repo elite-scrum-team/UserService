@@ -13,10 +13,17 @@ module.exports = {
         return await users.create(user);
     },
     async retrive() {},
-    async retriveOne(email) {
-        const user = await users.findOne({ where: { email } });
+
+    async retriveOne(id) {
+        const user = await users.findByPk(id);
         if (user) return user.dataValues;
-        else return null;
+        else return {};
+    },
+    async retriveOneByEmail(email) {
+        const user = await users.find({ where: { email: email } });
+        if (user) return user.dataValues;
+        else return {};
+
     },
     async update() {},
     async delete() {},
