@@ -17,10 +17,21 @@ module.exports = {
             return null;
         }
     },
-    async addUser(group, user) {
-        return {};
+    async addUser(groupId, userId) {
+        try {
+            return await db.user_group.create({ groupId, userId });
+        } catch (err) {
+            console.error(err);
+            return null;
+        }
     },
-    async deleteUser(group, user) {
-        return {};
+    async deleteUser(groupId, userId) {
+        try {
+            return (await db.user_group.destroy({ where: { groupId, userId } }))
+                .dataValue;
+        } catch (err) {
+            console.error(err);
+            return null;
+        }
     },
 };

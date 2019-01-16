@@ -1,4 +1,4 @@
-const { users } = require('../models');
+const db = require('../models');
 
 const AuthorizationController = require('./AuthorizationController.js');
 
@@ -11,7 +11,7 @@ module.exports = {
         };
         try {
             await AuthorizationController.setPassword(user, password);
-            return await users.create(user);
+            return await db.user.create(user);
         } catch (err) {
             return undefined;
         }
@@ -19,12 +19,12 @@ module.exports = {
     async retrive() {},
 
     async retriveOne(id) {
-        const user = await users.findByPk(id, { include: [{ all: true }] });
+        const user = await db.user.findByPk(id, { include: [{ all: true }] });
         if (user) return user.dataValues;
         else return undefined;
     },
     async retriveOneByEmail(email) {
-        const user = await users.find({ where: { email: email } });
+        const user = await db.user.findOne({ where: { email: email } });
         if (user) return user.dataValues;
         else return undefined;
     },
