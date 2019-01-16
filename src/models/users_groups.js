@@ -1,7 +1,12 @@
-
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('users_groups', {
-        userId: DataTypes.INTEGER,
-        groupId: DataTypes.INTEGER,
+    return sequelize.define('user_group', {
+        userId: {
+            primaryKey: true,
+            type: DataTypes.UUID,
+        },
+        groupId: {
+            primaryKey: true,
+            type: DataTypes.UUID,
+        },
     });
-}
+};

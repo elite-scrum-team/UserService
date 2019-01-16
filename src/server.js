@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.use('/api/v1/user', require('./routers/user'));
+app.use('/api/v1/group', require('./routers/group'));
 
 app.get('/', async (req, res) => {
     await res.send({
