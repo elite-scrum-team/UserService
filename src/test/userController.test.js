@@ -48,7 +48,7 @@ describe('User testing', () => {
         });
 
         it('returned null', () => {
-            expect(result).to.be.null;
+            expect(result).to.be.a('null', 'the returned value is not null');
         });
     });
 
@@ -86,7 +86,7 @@ describe('User testing', () => {
         });
 
         it('returned  null', () => {
-            expect(result).to.be.null;
+            expect(result).to.be.a('null', 'the returned argument is not null');
         });
     });
 
