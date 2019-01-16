@@ -34,4 +34,13 @@ module.exports = {
             return null;
         }
     },
+
+    async update(update, groupId) {
+        try {
+            return (await db.group.findByPk(groupId).then(group => group.update(update))).dataValue
+        } catch (err) {
+            console.error(err)
+            return null
+        }
+    }
 };
