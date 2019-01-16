@@ -50,4 +50,13 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/', async (req, res) => {
+    const user = await UserController.retrieveOneFiltered(req.query.internalUserId)
+    if (user) {
+        await res.send(user)
+    } else {
+        await res.status(400).send({ error: '.....' })
+    }
+})
+
 module.exports = router;
