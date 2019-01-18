@@ -1,4 +1,5 @@
 const db = require('../models');
+const Op = require('sequelize').Op
 
 module.exports = {
     async create(group) {
@@ -9,9 +10,17 @@ module.exports = {
             return null;
         }
     },
-    async retrieve() {
+    async retrieve({ onlyCompanies }) {
+        let where = {}
+
+        if (onlyCompanies) {
+            where.municipalitiy = {
+                [Op.eq]: null
+            }
+        }
+
         try {
-            return await db.group.findAll();
+            return await db.group.findAll({where});
         } catch (err) {
             console.error(err);
             return null;
