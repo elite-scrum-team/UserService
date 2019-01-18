@@ -14,7 +14,7 @@ describe('src/models/user', () => {
     const instance = new Model();
 
     // checking if the model is the same instance as the newmodel()
-    checkModelName(Model)('users');
+    checkModelName(Model)('user');
 
     context('properties', () => {
         ['email', 'password', 'phone', 'isAdmin'].forEach(

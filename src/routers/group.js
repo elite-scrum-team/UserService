@@ -14,9 +14,16 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+router.put('/:id', async (req, res) => {
+    const group = await GroupController.update(req.body, req.params.id)
+    if (group) await res.send(group)
+    else await res.status(500).send({ error: 'failed to update group' })
+})
+
 // retrive groups
 router.get('/', async (req, res) => {
-    const groups = await GroupController.retrieve();
+    const groups = await GroupController.retrieve(req.query);
     if (groups) await res.send(groups);
     else await res.status(500).send({ error: 'failed to send groups' });
 });

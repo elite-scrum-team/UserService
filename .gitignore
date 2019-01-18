@@ -5,4 +5,5 @@
 .DS_Store
 .idea
 ./idea
+./src/test/.DS_Store
 

@@ -37,6 +37,20 @@ module.exports = {
         if (user) return user.dataValues;
         else return null;
     },
+
+    async retrieveOneFiltered(id) {
+        const user = await db.user.findByPk(id, {
+            attributes: ['id', 'email', 'phone', 'isAdmin'],
+            include: [{ 
+                model: db.group,
+                as: 'group',
+                attributes: ['id', 'name', 'municipalitiy']
+             }]
+        })
+        if (user) return user.dataValues
+        else return null
+    },
+
     async retriveOneByEmail(email) {
         const user = await db.user.findOne({ where: { email: email } });
         if (user) return user.dataValues;
