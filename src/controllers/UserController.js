@@ -2,6 +2,8 @@ const db = require('../models');
 
 const AuthorizationController = require('./AuthorizationController.js');
 
+const NotificationService = require('../services/NotificationService');
+
 module.exports = {
     async create(email, password, phone) {
         const user = {
@@ -11,8 +13,11 @@ module.exports = {
         };
         try {
             await AuthorizationController.setPassword(user, password);
-            return await db.user.create(user);
+            const instance = await db.user.create(user);
+            await NotificationService.email.register(email, 'bob', password);
+            return instance;
         } catch (err) {
+            console.error(err);
             return undefined;
         }
     },
