@@ -31,6 +31,15 @@ router.post('/token', async (req, res) => {
     }
 });
 
+router.post('/forgotcauseimretard', async (req, res) => {
+    const email = req.body.email;
+    if (email) {
+        await UserController.resetPassord(email);
+    } else {
+        await res.status(400).send({ error: 'ivalid' });
+    }
+});
+
 router.post('/register', async (req, res) => {
     const user = await UserController.create(
         req.body.email,
