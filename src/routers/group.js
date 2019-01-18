@@ -23,7 +23,7 @@ router.put('/:id', async (req, res) => {
 
 // retrive groups
 router.get('/', async (req, res) => {
-    const groups = await GroupController.retrieve();
+    const groups = await GroupController.retrieve(req.query);
     if (groups) await res.send(groups);
     else await res.status(500).send({ error: 'failed to send groups' });
 });
