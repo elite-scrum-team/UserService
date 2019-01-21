@@ -26,6 +26,13 @@ module.exports = {
             return null;
         }
     },
+
+    async retrieveOne(groupId) {
+        const res = await db.group.findByPk(groupId)
+        if (res) return res
+        else return { error: 'Could not find group', status: 400 }
+    },
+
     async addUser(groupId, userId) {
         try {
             return await db.user_group.create({ groupId, userId });
