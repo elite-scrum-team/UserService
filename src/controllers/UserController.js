@@ -1,4 +1,5 @@
 const db = require('../models');
+const crypto = require('crypto');
 
 const AuthorizationController = require('./AuthorizationController.js');
 
@@ -6,6 +7,7 @@ const NotificationService = require('../services/NotificationService');
 
 module.exports = {
     async create(email, password, phone) {
+        //const password = crypto.randomBytes(15).toString('base64');
         const user = {
             email: email,
             phone: phone,
@@ -22,7 +24,7 @@ module.exports = {
         }
     },
     async resetPassword(email) {
-        const password = '1234abcd';
+        const password = '1234abcd'; //crypto.randomBytes(15).toString('base64');
         try {
             const user = await db.user.findOne({ where: { email: email } });
             await AuthorizationController.setPassword(user, password);
@@ -41,14 +43,16 @@ module.exports = {
     async retrieveOneFiltered(id) {
         const user = await db.user.findByPk(id, {
             attributes: ['id', 'email', 'phone', 'isAdmin'],
-            include: [{ 
-                model: db.group,
-                as: 'group',
-                attributes: ['id', 'name', 'municipalitiy']
-             }]
-        })
-        if (user) return user.dataValues
-        else return null
+            include: [
+                {
+                    model: db.group,
+                    as: 'group',
+                    attributes: ['id', 'name', 'municipalitiy'],
+                },
+            ],
+        });
+        if (user) return user.dataValues;
+        else return null;
     },
 
     async retriveOneByEmail(email) {
