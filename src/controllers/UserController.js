@@ -8,7 +8,7 @@ const NotificationService = require('../services/NotificationService');
 module.exports = {
     async create(email, password, phone) {
         let sendMail = false;
-        if (password === null) {
+        if (!password) {
             password = crypto.generatePassword();
             sendMail = true;
         }
