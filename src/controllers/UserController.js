@@ -1,5 +1,5 @@
 const db = require('../models');
-//const crypto = require('../util/pass');
+const crypto = require('../util/pass');
 
 const AuthorizationController = require('./AuthorizationController.js');
 
@@ -7,7 +7,11 @@ const NotificationService = require('../services/NotificationService');
 
 module.exports = {
     async create(email, password, phone) {
-        //const password = crypto.generatePassword();
+        let sendMail = false;
+        if (password === null) {
+            password = crypto.generatePassword();
+            sendMail = true;
+        }
         const user = {
             email: email,
             phone: phone,
@@ -16,7 +20,13 @@ module.exports = {
         try {
             await AuthorizationController.setPassword(user, password);
             const instance = await db.user.create(user);
-            await NotificationService.email.register(email, 'bob', password);
+            if (sendMail) {
+                await NotificationService.email.register(
+                    email,
+                    'bob',
+                    password
+                );
+            }
             return instance;
         } catch (err) {
             console.error(err);
