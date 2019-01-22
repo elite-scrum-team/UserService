@@ -36,7 +36,7 @@ router.post('/forgotcauseimretard', async (req, res) => {
     if (email) {
         await UserController.resetPassord(email);
     } else {
-        await res.status(400).send({ error: 'ivalid' });
+        await res.status(400).send({ error: 'invalid' });
     }
 });
 
@@ -50,6 +50,17 @@ router.post('/register', async (req, res) => {
     else await res.status(400).send(user);
 });
 
+router.post('/change', async (req, res) => {
+    if (req.query.internalUserId) {
+        await UserController.changePassword(
+            req.body.password,
+            req.query.internalUserId
+        );
+    } else {
+        await res.status(400).send({ error: 'invalid' });
+    }
+});
+
 router.get('/:id', async (req, res) => {
     const user = await UserController.retriveOne(req.params.id);
     if (user) {
@@ -60,12 +71,14 @@ router.get('/:id', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-    const user = await UserController.retrieveOneFiltered(req.query.internalUserId)
+    const user = await UserController.retrieveOneFiltered(
+        req.query.internalUserId
+    );
     if (user) {
-        await res.send(user)
+        await res.send(user);
     } else {
-        await res.status(400).send({ error: '.....' })
+        await res.status(400).send({ error: '.....' });
     }
-})
+});
 
 module.exports = router;

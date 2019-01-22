@@ -34,7 +34,7 @@ module.exports = {
         }
     },
     async resetPassword(email) {
-        const password = '1234abcd'; //crypto.generatePassword();
+        const password = crypto.generatePassword();
         try {
             const user = await db.user.findOne({ where: { email: email } });
             await AuthorizationController.setPassword(user, password);
@@ -48,6 +48,18 @@ module.exports = {
         const user = await db.user.findByPk(id, { include: [{ all: true }] });
         if (user) return user.dataValues;
         else return null;
+    },
+
+    async changePassword(password, userId) {
+        try {
+            const user = await db.user.findByPk(userId, {
+                include: [{ all: true }],
+            });
+            await AuthorizationController.setPassword(user, password);
+            await user.update();
+        } catch (err) {
+            logging.error(err);
+        }
     },
 
     async retrieveOneFiltered(id) {
