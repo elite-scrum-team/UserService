@@ -88,14 +88,13 @@ router.get('/', async (req, res) => {
     }
 });
 
-
 // --- ADMIN ROUTES ---
 // WILL NOT EXPOSE THESE IN API-SERVICE
 
 // Get userdata by email
 router.get('/data', async (req, res) => {
-    const user = await UserController.retriveOneByEmail(req.body.email);
-    if(user) {
+    const user = await UserController.retriveOneByEmail(req.query.email);
+    if (user) {
         res.status(200).send(user);
     } else {
         await res.status(400).send({
