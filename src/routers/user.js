@@ -50,7 +50,7 @@ router.post('/register', async (req, res) => {
     else await res.status(400).send(user);
 });
 
-router.post('/change', async (req, res) => {
+router.post('/changePassword', async (req, res) => {
     if (req.query.internalUserId) {
         await UserController.changePassword(
             req.body.password,
