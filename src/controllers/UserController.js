@@ -52,11 +52,15 @@ module.exports = {
 
     async changePassword(password, userId) {
         try {
+            console.log('before the sql');
             const user = await db.user.findByPk(userId, {
                 include: [{ all: true }],
             });
+            console.log('ffound user');
             await AuthorizationController.setPassword(user, password);
+            console.log('before update after set password');
             await user.update();
+            console.log('updated');
             return { msg: 'Changed password succesfully' };
         } catch (err) {
             logging.error(err);

@@ -51,11 +51,13 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/changePassword', async (req, res) => {
+    console.log('got to user.js');
     if (req.query.internalUserId) {
         const res = await UserController.changePassword(
             req.body.password,
             req.query.internalUserId
         );
+        console.log('returned form controller');
         if (res.status) {
             res.status(res.status).send({ msg: 'Noe gikk galt' });
         } else {
