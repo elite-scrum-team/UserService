@@ -57,8 +57,10 @@ module.exports = {
             });
             await AuthorizationController.setPassword(user, password);
             await user.update();
+            return { msg: 'Changed password succesfully' };
         } catch (err) {
             logging.error(err);
+            return { status: 400 };
         }
     },
 

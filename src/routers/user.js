@@ -52,10 +52,15 @@ router.post('/register', async (req, res) => {
 
 router.post('/changePassword', async (req, res) => {
     if (req.query.internalUserId) {
-        await UserController.changePassword(
+        const res = await UserController.changePassword(
             req.body.password,
             req.query.internalUserId
         );
+        if (res.status) {
+            res.status(res.status).send({ msg: 'Noe gikk galt' });
+        } else {
+            res.send({ msg: 'Passordet ble byttet' });
+        }
     } else {
         await res.status(400).send({ error: 'invalid' });
     }
