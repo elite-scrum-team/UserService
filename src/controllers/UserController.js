@@ -33,6 +33,7 @@ module.exports = {
             return undefined;
         }
     },
+
     async resetPassword(email) {
         const password = crypto.generatePassword();
         try {
@@ -40,8 +41,9 @@ module.exports = {
             await AuthorizationController.setPassword(user, password);
             await user.save();
             await NotificationService.email.register(email, 'bob', password);
+            return { msg: 'Password reset' };
         } catch (err) {
-            logging.error(err);
+            return { status: 400 };
         }
     },
     async retriveOne(id) {

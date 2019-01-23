@@ -34,7 +34,12 @@ router.post('/token', async (req, res) => {
 router.post('/forgotcauseimretard', async (req, res) => {
     const email = req.body.email;
     if (email) {
-        await UserController.resetPassord(email);
+        const response = await UserController.resetPassword(email);
+        if (response.status) {
+            res.status(response.status).send({ msg: 'Somethig went wrong' });
+        } else {
+            await res.send({ msg: 'Password sent' });
+        }
     } else {
         await res.status(400).send({ error: 'invalid' });
     }
@@ -51,13 +56,11 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/changePassword', async (req, res) => {
-    console.log('got to user.js');
     if (req.query.internalUserId) {
         const response = await UserController.changePassword(
             req.body.password,
             req.query.internalUserId
         );
-        console.log('returned form controller');
         if (response.status) {
             await res.status(response.status).send({ msg: 'Noe gikk galt' });
         } else {
