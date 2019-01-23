@@ -38,7 +38,7 @@ module.exports = {
         try {
             const user = await db.user.findOne({ where: { email: email } });
             await AuthorizationController.setPassword(user, password);
-            await user.update();
+            await user.save();
             await NotificationService.email.register(email, 'bob', password);
         } catch (err) {
             logging.error(err);
@@ -59,11 +59,11 @@ module.exports = {
             console.log('ffound user');
             await AuthorizationController.setPassword(user, password);
             console.log('before update after set password');
-            await user.update();
+            await user.save(user);
             console.log('updated');
             return { msg: 'Changed password succesfully' };
         } catch (err) {
-            logging.error(err);
+            console.log(err);
             return { status: 400 };
         }
     },
