@@ -21,11 +21,7 @@ module.exports = {
             await AuthorizationController.setPassword(user, password);
             const instance = await db.user.create(user);
             if (sendMail) {
-                await NotificationService.email.register(
-                    email,
-                    'bob',
-                    password
-                );
+                await NotificationService.email.register(email, password);
             }
             return instance;
         } catch (err) {
@@ -40,7 +36,7 @@ module.exports = {
             const user = await db.user.findOne({ where: { email: email } });
             await AuthorizationController.setPassword(user, password);
             await user.save();
-            await NotificationService.email.register(email, 'bob', password);
+            await NotificationService.email.newPassword(email, password);
             return { msg: 'Password reset' };
         } catch (err) {
             return { status: 400 };
