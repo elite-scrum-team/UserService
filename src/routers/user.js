@@ -59,9 +59,9 @@ router.post('/changePassword', async (req, res) => {
         );
         console.log('returned form controller');
         if (res.status) {
-            res.status(res.status).send({ msg: 'Noe gikk galt' });
+            await res.status(res.status).send({ msg: 'Noe gikk galt' });
         } else {
-            res.send({ msg: 'Passordet ble byttet' });
+            await res.send({ msg: 'Passordet ble byttet' });
         }
     } else {
         await res.status(400).send({ error: 'invalid' });
