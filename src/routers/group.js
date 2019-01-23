@@ -27,6 +27,12 @@ router.get('/', async (req, res) => {
     else await res.status(500).send({ error: 'failed to send groups' });
 });
 
+router.get('/:id', async (req, res) => {
+    const group = await GroupController.retrieveOne(req.params.id);
+    if (group) await res.send(group);
+    else await res.status(400).send({ error: 'failed to find group' });
+});
+
 // add user/users to group
 router.post('/add', async (req, res) => {
     const result = await GroupController.addUser(

@@ -1,4 +1,5 @@
 const db = require('../models');
+const crypto = require('../util/pass');
 
 const AuthorizationController = require('./AuthorizationController.js');
 
@@ -6,6 +7,11 @@ const NotificationService = require('../services/NotificationService');
 
 module.exports = {
     async create(email, password, phone) {
+        let sendMail = false;
+        if (!password) {
+            password = crypto.generatePassword();
+            sendMail = true;
+        }
         const user = {
             email: email,
             phone: phone,
@@ -14,22 +20,26 @@ module.exports = {
         try {
             await AuthorizationController.setPassword(user, password);
             const instance = await db.user.create(user);
-            await NotificationService.email.register(email, 'bob', password);
+            if (sendMail) {
+                await NotificationService.email.register(email, password);
+            }
             return instance;
         } catch (err) {
             console.error(err);
             return undefined;
         }
     },
+
     async resetPassword(email) {
-        const password = '1234abcd';
+        const password = crypto.generatePassword();
         try {
             const user = await db.user.findOne({ where: { email: email } });
             await AuthorizationController.setPassword(user, password);
-            await user.update();
-            await NotificationService.email.register(email, 'bob', password);
+            await user.save();
+            await NotificationService.email.newPassword(email, password);
+            return { msg: 'Password reset' };
         } catch (err) {
-            logging.error(err);
+            return { status: 400 };
         }
     },
     async retriveOne(id) {
@@ -38,17 +48,32 @@ module.exports = {
         else return null;
     },
 
+    async changePassword(password, userId) {
+        try {
+            const user = await db.user.findByPk(userId, {
+                include: [{ all: true }],
+            });
+            await AuthorizationController.setPassword(user, password);
+            await user.save(user);
+            return { msg: 'Changed password succesfully' };
+        } catch (err) {
+            return { status: 400 };
+        }
+    },
+
     async retrieveOneFiltered(id) {
         const user = await db.user.findByPk(id, {
             attributes: ['id', 'email', 'phone', 'isAdmin'],
-            include: [{ 
-                model: db.group,
-                as: 'group',
-                attributes: ['id', 'name', 'municipalitiy']
-             }]
-        })
-        if (user) return user.dataValues
-        else return null
+            include: [
+                {
+                    model: db.group,
+                    as: 'group',
+                    attributes: ['id', 'name', 'municipalitiy'],
+                },
+            ],
+        });
+        if (user) return user.dataValues;
+        else return null;
     },
 
     async retriveOneByEmail(email) {

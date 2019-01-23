@@ -1,5 +1,5 @@
 const db = require('../models');
-const Op = require('sequelize').Op
+const Op = require('sequelize').Op;
 
 module.exports = {
     async create(group) {
@@ -11,21 +11,28 @@ module.exports = {
         }
     },
     async retrieve({ onlyCompanies }) {
-        let where = {}
+        let where = {};
 
         if (onlyCompanies) {
             where.municipalitiy = {
-                [Op.eq]: null
-            }
+                [Op.eq]: null,
+            };
         }
 
         try {
-            return await db.group.findAll({where});
+            return await db.group.findAll({ where });
         } catch (err) {
             console.error(err);
             return null;
         }
     },
+
+    async retrieveOne(groupId) {
+        const res = await db.group.findByPk(groupId);
+        if (res) return res;
+        else return { error: 'Could not find group', status: 400 };
+    },
+
     async addUser(groupId, userId) {
         try {
             return await db.user_group.create({ groupId, userId });
@@ -46,10 +53,12 @@ module.exports = {
 
     async update(update, groupId) {
         try {
-            return (await db.group.findByPk(groupId).then(group => group.update(update))).dataValue
+            return (await db.group
+                .findByPk(groupId)
+                .then(group => group.update(update))).dataValue;
         } catch (err) {
-            console.error(err)
-            return null
+            console.error(err);
+            return null;
         }
-    }
+    },
 };

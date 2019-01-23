@@ -8,8 +8,7 @@ collectDefaultMetrics({ timeout: 5000 });
 
 const db = require('./models');
 
-//Endret her siden vi får en error når alter er true.
-db.sequelize.sync({ alter: false });
+db.sequelize.sync();
 
 const app = express();
 

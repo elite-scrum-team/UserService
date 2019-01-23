@@ -34,9 +34,14 @@ router.post('/token', async (req, res) => {
 router.post('/forgotcauseimretard', async (req, res) => {
     const email = req.body.email;
     if (email) {
-        await UserController.resetPassord(email);
+        const response = await UserController.resetPassword(email);
+        if (response.status) {
+            res.status(response.status).send({ msg: 'Somethig went wrong' });
+        } else {
+            await res.send({ msg: 'Password sent' });
+        }
     } else {
-        await res.status(400).send({ error: 'ivalid' });
+        await res.status(400).send({ error: 'invalid' });
     }
 });
 
@@ -50,6 +55,40 @@ router.post('/register', async (req, res) => {
     else await res.status(400).send(user);
 });
 
+router.post('/changePassword', async (req, res) => {
+    if (req.query.internalUserId) {
+        const response = await UserController.changePassword(
+            req.body.password,
+            req.query.internalUserId
+        );
+        if (response.status) {
+            await res.status(response.status).send({ msg: 'Noe gikk galt' });
+        } else {
+            await res.send({ msg: 'Passordet ble byttet' });
+        }
+    } else {
+        await res.status(400).send({ error: 'invalid' });
+    }
+});
+
+// --- ADMIN ROUTES ---
+// WILL NOT EXPOSE THESE IN API-SERVICE
+
+// Get userdata by email
+router.get('/data', async (req, res) => {
+    console.log('EMAIL: ', req.query.email);
+    const user = await UserController.retriveOneByEmail(req.query.email);
+    if (user) {
+        res.status(200).send(user);
+    } else {
+        await res.status(400).send({
+            error: 'USER_WITH_EMAIL_AND_PASSWORD_DOES_NOT_EXIST',
+        });
+    }
+});
+
+// --- ADMIN ROUTES END ---
+
 router.get('/:id', async (req, res) => {
     const user = await UserController.retriveOne(req.params.id);
     if (user) {
@@ -60,12 +99,14 @@ router.get('/:id', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-    const user = await UserController.retrieveOneFiltered(req.query.internalUserId)
+    const user = await UserController.retrieveOneFiltered(
+        req.query.internalUserId
+    );
     if (user) {
-        await res.send(user)
+        await res.send(user);
     } else {
-        await res.status(400).send({ error: '.....' })
+        await res.status(400).send({ error: '.....' });
     }
-})
+});
 
 module.exports = router;
