@@ -53,13 +53,13 @@ router.post('/register', async (req, res) => {
 router.post('/changePassword', async (req, res) => {
     console.log('got to user.js');
     if (req.query.internalUserId) {
-        const res = await UserController.changePassword(
+        const response = await UserController.changePassword(
             req.body.password,
             req.query.internalUserId
         );
         console.log('returned form controller');
-        if (res.status) {
-            await res.status(res.status).send({ msg: 'Noe gikk galt' });
+        if (response.status) {
+            await res.status(response.status).send({ msg: 'Noe gikk galt' });
         } else {
             await res.send({ msg: 'Passordet ble byttet' });
         }
