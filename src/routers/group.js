@@ -14,14 +14,13 @@ router.post('/', async (req, res) => {
     }
 });
 
-
 router.put('/:id', async (req, res) => {
-    const group = await GroupController.update(req.body, req.params.id)
-    if (group) await res.send(group)
-    else await res.status(500).send({ error: 'failed to update group' })
-})
+    const group = await GroupController.update(req.body, req.params.id);
+    if (group) await res.send(group);
+    else await res.status(500).send({ error: 'failed to update group' });
+});
 
-// retrive groups
+// retrieve groups
 router.get('/', async (req, res) => {
     const groups = await GroupController.retrieve(req.query);
     if (groups) await res.send(groups);
@@ -29,12 +28,12 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    const group = await GroupController.retrieveOne(req.params.id)
-    if (group) await res.send(group)
-    else await res.status(400).send({ error: 'failed to find group' })
-})
+    const group = await GroupController.retrieveOne(req.params.id);
+    if (group) await res.send(group);
+    else await res.status(400).send({ error: 'failed to find group' });
+});
 
-// add user/users to grup
+// add user/users to group
 router.post('/add', async (req, res) => {
     const result = await GroupController.addUser(
         req.body.groupId,
