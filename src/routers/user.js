@@ -36,12 +36,17 @@ router.post('/forgotcauseimretard', async (req, res) => {
     if (email) {
         const response = await UserController.resetPassword(email);
         if (response.status) {
-            res.status(response.status).send({ msg: 'Somethig went wrong' });
+            console.log(
+                'Someone requested new password for unregistered email'
+            );
+            res.send();
         } else {
-            await res.send({ msg: 'Password sent' });
+            console.log('A password was reset');
+            await res.send();
         }
     } else {
-        await res.status(400).send({ error: 'invalid' });
+        console.log('Something else went wrong');
+        await res.send();
     }
 });
 
