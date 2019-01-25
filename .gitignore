@@ -6,4 +6,7 @@
 .idea
 ./idea
 ./src/test/.DS_Store
-
+.nyc_output
+/.nyc_output
+coverage
+/coverage
