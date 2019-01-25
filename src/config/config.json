@@ -1,9 +1,9 @@
 {
     "development": {
-        "username": "user-service",
-        "password": "ze36VLB9MPK7Gv7",
-        "database": "UserService",
-        "host": "35.228.44.201",
+        "username": "anders",
+        "password": "WCJEzJed4bUhCp9",
+        "database": "User",
+        "host": "35.228.83.127",
         "dialect": "mysql"
     },
     "test": {
