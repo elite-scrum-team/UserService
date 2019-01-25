@@ -111,6 +111,32 @@ describe('User testing', () => {
         });
     });
 
+    context('testing resetPassword', () => {
+        before(async () => {
+            mockModels.user.findOne.resolves(fakeUser);
+            result = await save.resetPassword(user.id);
+        });
+
+        after(resetStubs);
+
+        it('called User.findOneOne', () => {
+            expect(mockModels.user.findOne).to.have.been.called;
+        });
+    });
+
+    context('testing change passord', () => {
+        before(async () => {
+            mockModels.user.findByPk.resolves(fakeUser);
+            result = await save.changePassword('newPassword', user.id);
+        });
+
+        after(resetStubs);
+
+        it('called User.findOneOne', () => {
+            expect(mockModels.user.findByPk).to.have.been.called;
+        });
+    });
+
     context('testing create()', () => {
         before(async () => {
             mockModels.user.create.resolves(fakeUser);
